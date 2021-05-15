@@ -1,19 +1,24 @@
-const Dep = require('./dep');
+const foo = require('./deps/foo');
+const bar = require('./deps/bar');
+const Baz = require('./deps/baz');
 
-const runDirectRequire = async () => {
-  const param = 'direct require';
-  const dep = new Dep(param);
-  dep.funcSync(param);
-  await dep.funcAsync(param);
-};
+module.exports = class Main {
+  constructor(injectedBaz) {
+    if (injectedBaz) {
+      this.baz = injectedBaz;
+      return;
+    }
 
-const runDepedencyInjection = async (injectedDep) => {
-  const param = 'dependency injection';
-  injectedDep.funcSync(param);
-  await injectedDep.funcAsync(param);
-};
+    this.baz = new Baz();
+  }
 
-module.exports = {
-  runDirectRequire,
-  runDepedencyInjection,
+  callReturnFooSync = () => foo.returnFooSync();
+
+  callReturnBarAsync = () => bar.returnBarAsync();
+
+  getInternalDelayOfBaz = () => this.baz.getDelay();
+
+  callReturnBazSync = () => this.baz.returnBazSync();
+
+  callReturnBazAsync = () => this.baz.returnBazAsync();
 };
