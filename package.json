@@ -1,0 +1,41 @@
+{
+  "name": "nodejs-mocking-examples",
+  "version": "0.0.1",
+  "description": "Showcasing different mocking methods for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "mocha -b --recursive ./test",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint:fix": "./node_modules/.bin/eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philohsophy/nodejs-mocking-examples.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mocking",
+    "testing"
+  ],
+  "author": "philohsophy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/philohsophy/nodejs-mocking-examples/issues"
+  },
+  "homepage": "https://github.com/philohsophy/nodejs-mocking-examples#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.1",
+    "mocha": "^8.4.0",
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.6.0"
+  },
+  "dependencies": {
+    "loglevel": "^1.7.1"
+  }
+}
